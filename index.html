@@ -8,10 +8,27 @@
 </head>
 
 <body>
+    <div id="new"></div>
     <script>
         let objector = ['furto', [['autoria', 'concurso' ], ['dano', ['arrombamento', 'seccionamento'],'ausencia']]];
-        console.log(objector);
-    
+        console.log(objector.flatMap(num => num));
+        
+        for (let i = 0; i <objector.length; i++){
+            var checkb = document.createElement("input");
+            checkb.setAttribute("type","checkbox");
+            checkb.setAttribute("value", objector[i]+i);
+            
+            var labelb = document.createElement("label");
+            labelb.setAttribute("value",objector[i]);
+
+            var text = document.createTextNode(objector[i]);
+            labelb.appendChild(text);
+
+            var element = document.getElementById("new");
+            element.appendChild(checkb);
+            element.appendChild(labelb);
+               
+        }
     </script>
 
     
