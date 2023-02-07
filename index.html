@@ -10,25 +10,58 @@
 <body>
     <div id="new"></div>
     <script>
-        let objector = ['furto', [['autoria', 'concurso' ], ['dano', ['arrombamento', 'seccionamento'],'ausencia']]];
-        console.log(objector.flatMap(num => num));
         
-        for (let i = 0; i <objector.length; i++){
-            var checkb = document.createElement("input");
-            checkb.setAttribute("type","checkbox");
-            checkb.setAttribute("value", objector[i]+i);
-            
-            var labelb = document.createElement("label");
-            labelb.setAttribute("value",objector[i]);
-
-            var text = document.createTextNode(objector[i]);
-            labelb.appendChild(text);
-
-            var element = document.getElementById("new");
-            element.appendChild(checkb);
-            element.appendChild(labelb);
-               
+        let objFurto = {
+            nome_menu: "Vestígio de Furto",
+            opcoes: ["Concurso de mais de uma pessoa", "recente"],
+            sub1: {
+                nome_sub1: "Escalada",
+                opcoes: ["sem vestigio, modo provável"],
+                sub1_1: {
+                    nome_sub1_1: "Sujidades",
+                    opcoes: ["calçado","pés","mãos"]
+                },
+                sub1_2: {
+                    nome_sub1_1: "Fragmentos",
+                    opcoes: ["cimentícios","tijolo cerâmico","vidro"]
+                }
+            },
+            sub2: {
+                nome_sub2: "Arrombamento",
+                sub2_1: {
+                    nome_sub2_1: "Amolgamento",
+                    opcoes: ["porta","janela", "muro"]
+                },
+                sub2_2: {
+                    nome_sub2_2: "Fraturas",
+                    opcoes: ["porta","janela", "muro"]
+                }
+            }
         }
+        
+        for (let key in objFurto){
+            console.log(key, objFurto[key]);
+        }
+
+        // let objector = ['furto', [['autoria', 'concurso' ], ['dano', ['arrombamento', 'seccionamento'],'ausencia']]];
+        // console.log(objector.flatMap(num => num));
+        
+        // for (let i = 0; i <objector.length; i++){
+        //     var checkb = document.createElement("input");
+        //     checkb.setAttribute("type","checkbox");
+        //     checkb.setAttribute("value", objector[i]+i);
+            
+        //     var labelb = document.createElement("label");
+        //     labelb.setAttribute("value",objector[i]);
+
+        //     var text = document.createTextNode(objector[i]);
+        //     labelb.appendChild(text);
+
+        //     var element = document.getElementById("new");
+        //     element.appendChild(checkb);
+        //     element.appendChild(labelb);
+               
+        // }
     </script>
 
     
