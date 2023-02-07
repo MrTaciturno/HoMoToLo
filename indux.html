@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style></style>
 </head>
 <body>
+    <div id= "insere">
+        O menu começa aqui:
+    </div>
     <script>
 
         // informações para a montagem do Menu de Furto - 
@@ -39,7 +43,46 @@
                 ["danos"]
             ]
         ]
+        function cria_um_check(texto, nomeHeranca){
+            var lbl = document.createElement("label");
+            lbl.setAttribute("id",nomeHeranca+texto);
 
+            var chk = document.createElement("input");
+            chk.setAttribute("type","checkbox");
+            chk.setAttribute("id", nomeHeranca+texto+"chk");
+
+            var txt = document.createTextNode(texto);
+            lbl.appendChild(chk);
+            lbl.appendChild(txt);
+
+            var elmnt = document.getElementById("insere");
+
+            var mybr = document.createElement('br');
+            elmnt.appendChild(lbl);
+            elmnt.appendChild(mybr);
+        }
+
+        function cria_todos_check (menu,nomeHeranca){
+            var parag = document.createElement("p");
+            parag.setAttribute("id","capsula");
+
+            var elmnt = document.getElementById("insere");
+            elmnt.appendChild(parag);
+
+            cria_um_check(menu[0],nomeHeranca);
+            for(let i = 0; i < menu[1].length;i++){
+                cria_um_check(menu[1][i],menu[0]);
+            }
+            for(let i = 0; i < menu[2].length;i++){
+                cria_todos_check(menu[2][i],nomeHeranca+menu[0]);
+            }
+           
+            
+        }
+        
+        cria_todos_check(menuFurto,"");
+
+        //cria_um_check(menuFurto[1]);
         
 
 
