@@ -12,7 +12,7 @@
     <script>
         
         let objFurto = {
-            nome_menu: "Vestígio de Furto",
+            nome_menu: "Vestígio de Furto ",
             opcoes: ["Concurso de mais de uma pessoa", "recente"],
             sub1: {
                 nome_sub1: "Escalada",
@@ -39,9 +39,33 @@
             }
         }
         
-        for (let key in objFurto){
-            console.log(key, objFurto[key]);
+        let indice_vest_furto = 1;
+
+
+
+        function cria_check(nome){
+            var checkb = document.createElement("input");
+            checkb.setAttribute("type","checkbox");
+            checkb.setAttribute("id", nome);
+            
+            var labelb = document.createElement("label");
+            labelb.setAttribute("value", nome);
+            var text = document.createTextNode(nome);
+            labelb.appendChild(text);
+
+            var element = document.getElementById("new");
+            element.appendChild(checkb);
+            element.appendChild(labelb);
         }
+
+        cria_check(objFurto.nome_menu+indice_vest_furto);
+
+        let verif =  document.getElementById(objFurto.nome_menu+indice_vest_furto);
+        
+        verif.addEventListener("click", console.log(verif.checked));
+
+        
+        
 
         // let objector = ['furto', [['autoria', 'concurso' ], ['dano', ['arrombamento', 'seccionamento'],'ausencia']]];
         // console.log(objector.flatMap(num => num));
