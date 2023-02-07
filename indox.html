@@ -12,18 +12,43 @@
     </div>
 
     <script>
-        let opc = {
-            nome,
-            opcoes: [],
-            submenu: [],
-            listen: function(){console.log(this.nome)}
+        let opc = function(nome,opcoes,submenu){
+            this.nome = nome,
+            this.opcoes = opcoes,
+            this.submenu = submenu,
+            this.listen = function(){console.log(this.nome)}
         }
 
-        let opcFurto = new opc;
-        opcFurto.nome = "Vestígio de Furto";
-        opcFurto.opcoes = ["A","B","C"];
-        opcFurto.submenu = ["AA","BB","CC"];
+        let opcFurto = new opc("VdF",["A","B","C"], ["AA","BB","CC"]);
+        let opcAA = new opc("AA",["p","j","v"],["GG","NN"]);
+
         
+        //opcAA.listen();
+
+        function cria_check(opc){
+            var lbl = document.createElement("label");
+            lbl.setAttribute("id", opc.nome);
+
+            var chk = document.createElement("input");
+            chk.setAttribute("type","checkbox");
+            chk.setAttribute("id", opc.nome+"chk");
+
+            var txt = document.createTextNode(opc.nome);
+            lbl.appendChild(chk);
+            lbl.appendChild(txt);
+
+            var elmnt = document.getElementById("insere");
+
+            elmnt.appendChild(lbl);
+            if (opc.submenu.length !== 0){
+                cria_check("opc"+opc.submenu[0]);
+            }
+        }
+
+        cria_check(opcFurto);
+
+        
+
     </script>
     
 </body>
