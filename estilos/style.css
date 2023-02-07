@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #acacff;
+    background-color: #eaeaee;
 
 }
 
@@ -26,8 +26,13 @@ h2 {
     color: rgb(58, 0, 112);
 }
 
-p.class {
-    border: 1px;
+label.capsula {
+    width: 100%;
+    padding: 8px 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 4px;
 }
 
 a {
