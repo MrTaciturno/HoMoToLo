@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body>
-    <div id= "insere">
+    <fieldset class= "capsula" id= "ito">
         O menu começa aqui:
-    </div>
+    </fieldset>
     <script>
 
         // informações para a montagem do Menu de Furto - 
@@ -31,7 +31,7 @@
                     [
                         [
                             "sujidades",
-                            ["porta", "janela", "metal"],
+                            ["porta", "janela", "metal","madeira"],
                             []
                         ],
                         [
@@ -54,7 +54,7 @@
             ]
         ]
         function cria_um_check(texto, nomeHeranca){
-            var lbl = document.createElement("label");
+            var lbl = document.createElement("fieldset");
             lbl.setAttribute("id",nomeHeranca+"_"+texto);
             lbl.setAttribute("class","capsula");
 
@@ -66,22 +66,23 @@
             lbl.appendChild(chk);
             lbl.appendChild(txt);
 
-            var elmnt = document.getElementById("new");
+            var elmnt = document.getElementById(nomeHeranca);
 
-            var mybr = document.createElement('br');
+            //var mybr = document.createElement('br');
             elmnt.appendChild(lbl);
-            elmnt.appendChild(mybr);
+            //elmnt.appendChild(mybr);
         }
 
         function cria_todos_check (menu,nomeHeranca){
-            var parag = document.createElement("fieldset");
-            parag.setAttribute("class","capsula");
-            parag.setAttribute("id","new")
+            // var parag = document.createElement("fieldset");
+            // parag.setAttribute("class","capsula");
+            // parag.setAttribute("id","field"+menu[0])
 
-            var elmnt = document.getElementById("insere");
-            elmnt.appendChild(parag);
+            // var elmnt = document.getElementById("insere");
+            // elmnt.appendChild(parag);
 
             cria_um_check(menu[0],nomeHeranca);
+            
 
             for(let i = 0; i < menu[1].length;i++){
                 cria_um_check(menu[1][i],nomeHeranca+"_"+menu[0]);
@@ -93,7 +94,7 @@
             
         }
         
-        cria_todos_check(menuFurto,"");
+        cria_todos_check(menuFurto,"ito");
 
         //cria_um_check(menuFurto[1]);
         
