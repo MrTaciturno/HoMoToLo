@@ -30,33 +30,43 @@
                     ],
                     [
                         [
-                            "amolgamento",
+                            "sujidades",
                             ["porta", "janela", "metal"],
                             []
                         ],
                         [
-                            "fraturas"
+                            "fraturas",
+                            [],
+                            []
                         ]
                     ]
                 ],
-                ["arrombamento"],
-                ["danos"]
+                [
+                    "arrombamento",
+                    [],
+                    []
+                ],
+                [
+                    "danos",
+                    [],
+                    []
+                ]
             ]
         ]
         function cria_um_check(texto, nomeHeranca){
             var lbl = document.createElement("label");
-            lbl.setAttribute("id",nomeHeranca+texto);
+            lbl.setAttribute("id",nomeHeranca+"_"+texto);
             lbl.setAttribute("class","capsula");
 
             var chk = document.createElement("input");
             chk.setAttribute("type","checkbox");
-            chk.setAttribute("id", nomeHeranca+texto+"chk");
+            chk.setAttribute("id", nomeHeranca+"_"+texto+"chk");
 
             var txt = document.createTextNode(texto);
             lbl.appendChild(chk);
             lbl.appendChild(txt);
 
-            var elmnt = document.getElementById("insere");
+            var elmnt = document.getElementById("new");
 
             var mybr = document.createElement('br');
             elmnt.appendChild(lbl);
@@ -64,18 +74,20 @@
         }
 
         function cria_todos_check (menu,nomeHeranca){
-            var parag = document.createElement("p");
+            var parag = document.createElement("fieldset");
             parag.setAttribute("class","capsula");
+            parag.setAttribute("id","new")
 
             var elmnt = document.getElementById("insere");
             elmnt.appendChild(parag);
 
             cria_um_check(menu[0],nomeHeranca);
+
             for(let i = 0; i < menu[1].length;i++){
-                cria_um_check(menu[1][i],menu[0]);
+                cria_um_check(menu[1][i],nomeHeranca+"_"+menu[0]);
             }
             for(let i = 0; i < menu[2].length;i++){
-                cria_todos_check(menu[2][i],nomeHeranca+menu[0]);
+                cria_todos_check(menu[2][i],nomeHeranca+"_"+menu[0]);
             }
            
             
