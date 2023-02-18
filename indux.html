@@ -9,9 +9,10 @@
 </head>
 <body>
     <fieldset class= "capsula" id= "ito">
-        O menu começa aqui:
+        O menu de furto começa aqui:
     </fieldset>
-    <script>
+
+     <script>
 
         // informações para a montagem do Menu de Furto - 
         // 0 - nome do menu
@@ -53,6 +54,7 @@
                 ]
             ]
         ]
+        
         function cria_um_check(texto, nomeHeranca){
             var lbl = document.createElement("fieldset");
             lbl.setAttribute("id",nomeHeranca+"_"+texto);
@@ -74,14 +76,34 @@
         }
 
         function cria_todos_check (menu,nomeHeranca){
-            // var parag = document.createElement("fieldset");
-            // parag.setAttribute("class","capsula");
-            // parag.setAttribute("id","field"+menu[0])
+            
+            
+            var lbl = document.createElement("fieldset");
+            lbl.setAttribute("id",nomeHeranca+"_"+menu[0]);
+            lbl.setAttribute("class","geral");
+            
+            var lgnd = document.createElement("legend");
+            lgnd.setAttribute("id",nomeHeranca+"_"+menu[0]+"_lgng");
 
-            // var elmnt = document.getElementById("insere");
-            // elmnt.appendChild(parag);
 
-            cria_um_check(menu[0],nomeHeranca);
+            var chk = document.createElement("input");
+            chk.setAttribute("type","checkbox");
+            chk.setAttribute("id", nomeHeranca+"_"+menu[0]+"chk");
+
+            var txt = document.createTextNode(menu[0]);
+            lgnd.appendChild(chk);
+            lgnd.appendChild(txt);
+
+            lbl.appendChild(lgnd);
+
+            var elmnt = document.getElementById(nomeHeranca);
+
+            //var mybr = document.createElement('br');
+            elmnt.appendChild(lbl);
+            //elmnt.appendChild(mybr);
+
+
+//            cria_um_check(menu[0],"field"+menu[0]);
             
 
             for(let i = 0; i < menu[1].length;i++){
