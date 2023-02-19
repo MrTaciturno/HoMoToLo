@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montando um HTML com Java</title>
+</head>
+
+<body>
+    <div id="new"></div>
+    <script>
+        
+        let objFurto = {
+            nome_menu: "Vestígio de Furto",
+            opcoes: ["Concurso de mais de uma pessoa", "recente"],
+            sub1: {
+                nome_sub1: "Escalada",
+                opcoes: ["sem vestigio, modo provável"],
+                sub1_1: {
+                    nome_sub1_1: "Sujidades",
+                    opcoes: ["calçado","pés","mãos"]
+                },
+                sub1_2: {
+                    nome_sub1_1: "Fragmentos",
+                    opcoes: ["cimentícios","tijolo cerâmico","vidro"]
+                }
+            },
+            sub2: {
+                nome_sub2: "Arrombamento",
+                sub2_1: {
+                    nome_sub2_1: "Amolgamento",
+                    opcoes: ["porta","janela", "muro"]
+                },
+                sub2_2: {
+                    nome_sub2_2: "Fraturas",
+                    opcoes: ["porta","janela", "muro"]
+                }
+            }
+        }
+        
+        let indice_vest_furto = 1;
+
+
+
+        function cria_check(nome){
+            var checkb = document.createElement("input");
+            checkb.setAttribute("type","checkbox");
+            checkb.setAttribute("id", nome+"chk");
+           
+            
+            var labelb = document.createElement("label");
+            labelb.setAttribute("id", nome+"lbl");
+            var text = document.createTextNode(nome);
+            labelb.appendChild(checkb);
+            labelb.appendChild(text);
+
+ //           checkb.appendChild(text);
+
+            var element = document.getElementById("new");
+            //element.appendChild(checkb);
+            element.appendChild(labelb);
+        }
+
+        cria_check(objFurto.nome_menu+indice_vest_furto);
+        
+        for(let a = 0; a < objFurto.opcoes.length; a++){
+            let composicao = objFurto.opcoes[a];
+            cria_check(composicao);
+
+            document.getElementById(composicao+"chk").hidden = true;
+            document.getElementById(composicao+"lbl").hidden = true;
+
+            let elem =  document.getElementById(objFurto.nome_menu+indice_vest_furto+"chk");
+
+            elem.addEventListener("click", function() {
+                document.getElementById(composicao+"chk").hidden = !elem.checked;
+                document.getElementById(composicao+"lbl").hidden = !elem.checked;
+
+            });
+
+
+        }
+        let elem =  document.getElementById(objFurto.nome_menu+indice_vest_furto+"chk");
+
+        elem.addEventListener("click", function() {console.log(elem.checked)});
+                    
+        
+        
+
+        // let objector = ['furto', [['autoria', 'concurso' ], ['dano', ['arrombamento', 'seccionamento'],'ausencia']]];
+        // console.log(objector.flatMap(num => num));
+        
+        // for (let i = 0; i <objector.length; i++){
+        //     var checkb = document.createElement("input");
+        //     checkb.setAttribute("type","checkbox");
+        //     checkb.setAttribute("value", objector[i]+i);
+            
+        //     var labelb = document.createElement("label");
+        //     labelb.setAttribute("value",objector[i]);
+
+        //     var text = document.createTextNode(objector[i]);
+        //     labelb.appendChild(text);
+
+        //     var element = document.getElementById("new");
+        //     element.appendChild(checkb);
+        //     element.appendChild(labelb);
+               
+        // }
+    </script>
+
+    
+</body>
+</html>
