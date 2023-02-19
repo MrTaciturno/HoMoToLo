@@ -26,6 +26,10 @@ h2 {
     color: rgb(58, 0, 112);
 }
 
+legend {
+    font-weight: bold;
+
+}
 fieldset.geral {
     width: 100%;
     padding: 5px 5px;
