@@ -67,9 +67,17 @@
             chk.setAttribute("type","checkbox");
             chk.setAttribute("id", nomeHeranca+"_"+texto+"chk");
 
-            var txt = document.createTextNode(texto);
+            chk.addEventListener("click", function() {
+            
+                console.log(nomeHeranca+"_"+texto+"chk");
+            
+            })
+            var lobel = document.createElement("label");
+            lobel.innerHTML = texto;
+            lobel.htmlFor = nomeHeranca+"_"+texto+"chk";
+
             lbl.appendChild(chk);
-            lbl.appendChild(txt);
+            lbl.appendChild(lobel);
 
             var elmnt = document.getElementById(nomeHeranca);
 
@@ -93,9 +101,20 @@
             chk.setAttribute("type","checkbox");
             chk.setAttribute("id", nomeHeranca+"_"+menu[0]+"_chk_"+indice);
 
+            chk.addEventListener("click", function() {
+            
+                console.log(nomeHeranca+"_"+menu[0]+"_chk_"+indice);
+                
+            })
+
+            var lobel = document.createElement("label");
+            lobel.innerHTML = menu[0]+" "+indice;
+            lobel.htmlFor = nomeHeranca+"_"+menu[0]+"_chk_"+indice;
+
+
             var txt = document.createTextNode(menu[0]+" "+indice);
             lgnd.appendChild(chk);
-            lgnd.appendChild(txt);
+            lgnd.appendChild(lobel);
 
             lbl.appendChild(lgnd);
 
@@ -146,7 +165,6 @@
         but.addEventListener("click", function() {
             
             cria_todos_check(menuFurto,"ito", indice_vest_furto);
-            console.log(indice_vest_furto);
             indice_vest_furto++;
         })
         
