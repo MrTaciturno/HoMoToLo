@@ -41,29 +41,21 @@
                     ["porta","janela","metal","madeira","instrumento na forma de alavanca","instrumento de ação percussiva", "força humana - chutes","força humana - encontrões"],
                     []],
                 ["fragmento",
-                    [],
-                    []]],
-            ],
+                    ["cimentício","tijolo cerâmico","vidro"],
+                    []]]],
             ["desordem típica de busca",
                 [],
-                []
-            ],
+                []],
             ["seccionamento",
                 [],
-                []
-            ],
+                []],
             ["situado",
                 [],
-                []
-            ],
+                []],
 
             ["extras",
                 [],
-                []
-            ]
-            
-            
-            ]
+                []]]
         ]
         
         function cria_um_check(texto, nomeHeranca){
@@ -105,11 +97,12 @@
             chk.setAttribute("id", nomeHeranca+"_"+menu[0]+"_chk_"+indice);
             
             let color = chk.id.length;
-            color = (color-20)/10;
+            color = (color-20)/7;
             rc1 = 0;
             rc2 = 0;
-            rc3 = Math.floor(color)*75;
+            rc3 = Math.floor(color)*60;
             lbl.style.color = "#"+rc1.toString(16).padStart(2,'0')+rc2.toString(16).padStart(2,'0')+rc3.toString(16).padStart(2,'0');
+            
 
             chk.addEventListener("click", function() {
                 for(let i = 0; i < menu[1].length;i++){
