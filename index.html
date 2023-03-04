@@ -56,11 +56,11 @@
                 ["remoção",
                     ["telhas","forro","vidrilhos","folha de vidro","folha de porta","folha de janela","folha de janela","moldura de vedação"],
                     []]]],
-            ["desordem típica de busca",
-                ["quartos","quarto","closet","sala","sala de jantar","cozinha","banheiro","garagem","lavanderia"],
-                []],
             ["seccionamento",
                 ["cerca elétrica","concertina","arame farpardo"],
+                []],
+            ["desordem típica de busca",
+                ["quartos","quarto","closet","sala","sala de jantar","cozinha","banheiro","garagem","lavanderia"],
                 []],
             ["situado",
                 ["porção anterior","porção média","porção posterior","porção posterior","porção esquerda","porção central","porção direita","porção interna","porção externa","porção superior","porção inferior"],
@@ -230,11 +230,18 @@
                         dataVF[i-1] = dataVF[i-1] + (document.getElementById("ito_"+menuFurto[0]+"_"+i+"_"+menuFurto[1][j]+"chk").checked ? ", "+menuFurto[1][j] : "");
                     }
                     dataVF[i-1] = dataVF[i-1] + ". ";
+
                     for(j=0;j<menuFurto[2].length;j++){
-                        
+                        if (document.getElementById("ito_"+menuFurto[0]+"_"+i+"_"+menuFurto[2][j][0]+"_chk_"+i).checked){
+                            if (dataVF[i-1]=== (i+") "+menuFurto[0]+". ")){dataVF[i-1]=i+") "}
+                            dataVF[i-1] = dataVF[i-1] + "Apresentava " + menuFurto[2][j][0] + ". ";
+                        }
+
                     }
                     
                     //ito_Vestígio de furto_1_escalada_chk_1
+                    //ito_Vestígio de furto_1_escalada_chk_1
+                    
 
                     //ito_Vestígio de Furto_1_aspecto recentechk
                     //dataVF = dataVF + (document.getElementById("ito_"+menuFurto[0]+"_chk_"+i).checked ?);
