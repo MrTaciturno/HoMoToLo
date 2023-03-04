@@ -14,6 +14,10 @@
     <p id="botao">
 
     </p>
+    <p id="textoDoLaudo">
+
+    </p>
+    
 
      <script>
 
@@ -41,19 +45,28 @@
                     ["porta","janela","metal","madeira","instrumento na forma de alavanca","instrumento de ação percussiva", "força humana - chutes","força humana - encontrões"],
                     []],
                 ["fraturas",
-                    ["cimentício","tijolo cerâmico","vidro"],
+                    ["porta","janela","muro","vidro","vidrilho","madeira", "instrumento na forma de alavanca","instrumento de ação percussiva", "força humana - chutes","força humana - encontrões"],
+                    []],
+                ["fragmentos",
+                    ["cimentício","tijolo cerâmico","vidro","madeira","metal"],
+                    []],
+                ["atritamentos",
+                    ["uso de chave mixa","inserção de instrumento"],
+                    []],
+                ["remoção",
+                    ["telhas","forro","vidrilhos","folha de vidro","folha de porta","folha de janela","folha de janela","moldura de vedação"],
                     []]]],
             ["desordem típica de busca",
-                [],
+                ["quartos","quarto","closet","sala","sala de jantar","cozinha","banheiro","garagem","lavanderia"],
                 []],
             ["seccionamento",
-                [],
+                ["cerca elétrica","concertina","arame farpardo"],
                 []],
             ["situado",
-                [],
+                ["porção anterior","porção média","porção posterior","porção posterior","porção esquerda","porção central","porção direita","porção interna","porção externa","porção superior","porção inferior"],
                 []],
 
-            ["extras",
+            ["preencher depois",
                 [],
                 []]]
         ]
@@ -157,6 +170,7 @@
                     var subCheck_T = document.getElementById(nomeHeranca+"_"+menu[0]+"_"+indice+"_"+menu[2][j][0]+"_"+indice);
                     subCheck_T.hidden = !chk.checked;
                 }
+                //var vestText = document.getElementById("textoDoLaudo");
 
             })
 
@@ -189,14 +203,30 @@
         but.setAttribute("id","Novo "+menuFurto[0]);
         but.setAttribute("value","Novo "+menuFurto[0]);
         
+        var gera = document.createElement("input");
+        gera.setAttribute("type","button");
+        gera.setAttribute("id","CriaTexto");
+        gera.setAttribute("value","CriaTexto");
+        
         var elmnt = document.getElementById("botao");
         elmnt.appendChild(but);
+        elmnt.appendChild(gera);
         
         but.addEventListener("click", function() {
           
             cria_primeiro_check(menuFurto,"ito", indice_vest_furto);
             indice_vest_furto++;
         })
+
+        gera.addEventListener("click", function(){
+                //cria texto do vestigio
+
+                //pensar se haverá recursão ou uma porrada de ifs
+        })
+
+
+
+
 </script>
     
 </body>
