@@ -27,8 +27,8 @@
         // 2 - opcoes com subitem
         let menuFurto =
         ["Vestígio de furto",
-            ["de aspecto recente",
-            "ensejando concurso duas ou mais pessoas",
+            ["aspecto recente",
+            "concurso de 2 ou mais",
             "provável ponto de entrada"],
             [
             ["escalada",
@@ -46,7 +46,7 @@
                     []],
                 ["fraturas",
                     ["porta","janela","muro","vidro","vidrilho","madeira", "instrumento na forma de alavanca","instrumento de ação percussiva", "força humana - chutes","força humana - encontrões"],
-                    []],
+                    []], 
                 ["fragmentos",
                     ["cimentício","tijolo cerâmico","vidro","madeira","metal"],
                     []],
@@ -57,12 +57,22 @@
                     ["telhas","forro","vidrilhos","folha de vidro","folha de porta","folha de janela","folha de janela","moldura de vedação"],
                     []]]],
             ["seccionamento",
-                ["cerca elétrica","concertina","arame farpardo"],
+                ["cerca elétrica",
+                "concertina",
+                "arame farpardo"],
                 []],
             ["desordem típica de busca",
-                ["quartos","quarto","closet","sala","sala de jantar","cozinha","banheiro","garagem","lavanderia"],
+                ["quartos",
+                "quarto",
+                "closet",
+                "sala",
+                "sala de jantar",
+                "cozinha",
+                "banheiro",
+                "garagem",
+                "lavanderia"],
                 []],
-            ["situado",
+            ["situado", 
                 ["porção anterior","porção média","porção posterior","porção posterior","porção esquerda","porção central","porção direita","porção interna","porção externa","porção superior","porção inferior"],
                 []]]
         ]
@@ -216,6 +226,19 @@
             indice_vest_furto++;
         })
 
+
+        function extraiSubs (iMenu){
+            let texto = "";
+            for (i=0;i<iMenu[1].length;i++){
+                texto = texto + "Texto direto:" + iMenu[i] + "; ";
+            }
+            for (i=0;i<iMenu[2].length;i++){
+                texto = texto + "SubMenu: " + iMenu[2] + "; ";
+            }
+
+            return texto;
+        }
+
         gera.addEventListener("click", function(){
             
             let dataVF = [];
@@ -235,6 +258,7 @@
                         if (document.getElementById("ito_"+menuFurto[0]+"_"+i+"_"+menuFurto[2][j][0]+"_chk_"+i).checked){
                             if (dataVF[i-1]=== (i+") "+menuFurto[0]+". ")){dataVF[i-1]=i+") "}
                             dataVF[i-1] = dataVF[i-1] + "Apresentava " + menuFurto[2][j][0] + ". ";
+                           // dataVF = dataVF + extraiSubs(menuFurto[2][j]);
                         }
 
                     }
