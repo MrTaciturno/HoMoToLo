@@ -132,7 +132,7 @@
                     var subCheck_T = document.getElementById(nomeHeranca+"_"+menu[0]+"_"+indice+"_"+menu[2][j][0]+"_"+indice);
                     subCheck_T.hidden = !chk.checked;
                 }
-            })
+            });
 
             var lobel = document.createElement("label");
             lobel.innerHTML = menu[0]+" "+indice;
@@ -224,20 +224,9 @@
           
             cria_primeiro_check(menuFurto,"ito", indice_vest_furto);
             indice_vest_furto++;
-        })
+        });
 
 
-        function extraiSubs (iMenu){
-            let texto = "";
-            for (i=0;i<iMenu[1].length;i++){
-                texto = texto + "Texto direto:" + iMenu[i] + "; ";
-            }
-            for (i=0;i<iMenu[2].length;i++){
-                texto = texto + "SubMenu: " + iMenu[2] + "; ";
-            }
-
-            return texto;
-        }
 
         gera.addEventListener("click", function(){
             
@@ -258,14 +247,16 @@
                         if (document.getElementById("ito_"+menuFurto[0]+"_"+i+"_"+menuFurto[2][j][0]+"_chk_"+i).checked){
                             if (dataVF[i-1]=== (i+") "+menuFurto[0]+". ")){dataVF[i-1]=i+") "}
                             dataVF[i-1] = dataVF[i-1] + "Apresentava " + menuFurto[2][j][0] + ". ";
+
+                            console.log (extraiSubs(menuFurto[2][j]));
+
                            // dataVF = dataVF + extraiSubs(menuFurto[2][j]);
                         }
 
                     }
                     
                     //ito_Vestígio de furto_1_escalada_chk_1
-                    //ito_Vestígio de furto_1_escalada_chk_1
-                    
+
 
                     //ito_Vestígio de Furto_1_aspecto recentechk
                     //dataVF = dataVF + (document.getElementById("ito_"+menuFurto[0]+"_chk_"+i).checked ?);
@@ -281,9 +272,21 @@
                 pInsTextoLaudo.appendChild(newP);
             }
 
-        })
+        });
 
+        
+        function extraiSubs (iMenu){
+            let texto = "";
+            
+            for (a=0;a<iMenu[1].length;a++){
+                texto = texto + "Texto direto:" + iMenu[a] + "; ";
+            }
+            for (a=0;a<iMenu[2].length;a++){
+                texto = texto + "SubMenu: " + iMenu[2] + "; ";
+            }
 
+            return texto;
+        }
 
 
 </script>
