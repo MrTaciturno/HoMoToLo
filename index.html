@@ -40,7 +40,7 @@
                     ["cimentícios","tijolo","vidro"],
                     []]]],
             ["arrombamento",
-                [],
+                [""],
                 [["amolgamento",
                     ["porta","janela","metal","madeira","instrumento na forma de alavanca","instrumento de ação percussiva", "força humana - chutes","força humana - encontrões"],
                     []],
@@ -282,11 +282,24 @@
                 texto = texto + "Texto direto:" + iMenu[a] + "; ";
             }
             for (a=0;a<iMenu[2].length;a++){
+                texto = texto + "SubMenu: " + iMenu[2][a][0] + "; ";
+            }
+            texto = texto + extraiSubs_1(iMenu[2]);
+            return texto;
+        }
+        function extraiSubs_1 (iMenu){
+            let texto = "";
+            
+            for (a=0;a<iMenu[0].length;a++){
+                texto = texto + "Texto direto:" + iMenu[1] + "; ";
+            }
+            for (a=0;a<iMenu[1].length;a++){
                 texto = texto + "SubMenu: " + iMenu[2] + "; ";
             }
 
             return texto;
         }
+        
 
 
 </script>
