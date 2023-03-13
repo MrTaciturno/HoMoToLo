@@ -37,12 +37,12 @@
                     ["calçado", "pés", "mãos","terra"],
                     []],
                 ["fragmentos",
-                    ["cimentícios","tijolo","vidro"],
+                    ["cimento","tijolo","vidro"],
                     []]]],
             ["arrombamento",
                 [""],
                 [["amolgamento",
-                    ["porta","janela","metal","madeira","instrumento na forma de alavanca","instrumento de ação percussiva", "força humana - chutes","força humana - encontrões"],
+                    ["porta","janela","metal","madeira","instrumento na forma de alavanca","instrumento de ação percussiva", "força humana, ensejando chutes","força humana, ensejando encontrões"],
                     []],
                 ["fraturas",
                     ["porta","janela","muro","vidro","vidrilho","madeira", "instrumento na forma de alavanca","instrumento de ação percussiva", "força humana - chutes","força humana - encontrões"],
@@ -198,7 +198,7 @@
 
             for(let i = 0; i < menu[2].length;i++) cria_todos_check(menu[2][i], nomeHeranca+"_"+menu[0]+"_"+indice, indice);
 
-            console.log("meta: "+nomeHeranca+"_"+menu[0]+"_"+indice);
+            //console.log("meta: "+nomeHeranca+"_"+menu[0]+"_"+indice);
         }
         
         let indice_vest_furto = 1;
@@ -248,7 +248,38 @@
                             if (dataVF[i-1]=== (i+") "+menuFurto[0]+". ")){dataVF[i-1]=i+") "}
                             dataVF[i-1] = dataVF[i-1] + "Apresentava " + menuFurto[2][j][0] + ". ";
 
-                            console.log (extraiSubs(menuFurto[2][j]));
+
+                            let flagE01 = false;
+                            for (a=0;a<menuFurto[2][j][2].length;a++){
+                                if (document.getElementById("ito_"+menuFurto[0]+"_"+i+"_"+menuFurto[2][j][0]+"_"+i+"_"+menuFurto[2][j][2][a][0]+"_chk_"+i).checked){
+                                    dataVF[i-1] = dataVF[i-1].slice(0,-2) + (flagE01 ? " e " : ", caracterizado por ") + menuFurto[2][j][2][a][0] + ". ";
+                                    flagE01 = true;
+
+                                    
+                                    let flagE02 = false;
+                                    for (g=0; g<menuFurto[2][j][2][a][1].length;g++){
+                                        //console.log("ito_"+menuFurto[0]+"_"+i+"_"+menuFurto[2][j][0]+"_"+i+"_"+menuFurto[2][j][2][a][0]+"_"+i+"_"+menuFurto[2][j][2][a][1][g]+"chk");
+                                        
+                                        if (document.getElementById("ito_"+menuFurto[0]+"_"+i+"_"+menuFurto[2][j][0]+"_"+i+"_"+menuFurto[2][j][2][a][0]+"_"+i+"_"+menuFurto[2][j][2][a][1][g]+"chk").checked){
+                                            dataVF[i-1] = dataVF[i-1].slice(0,-2) + (flagE02 ? ", de " : " de ") + menuFurto[2][j][2][a][1][g] + ". ";
+                                            flagE02 = true;
+                                        }
+                                        // console.log("a: "+"ito_"+menuFurto[0]+"_"+i+"_"+menuFurto[2][j][0]+"_"+i+"_"+menuFurto[2][j][2][a][0]+"_"+i+"_"+menuFurto[2][j][2][a][g][0]+"chk");
+                                        // console.log("b: "+menuFurto[2][j][2][a][0]);
+                                        //dataVF[i-1] = dataVF[i-1].slice(0,-2) +
+                                        }
+                                    
+                                }
+                                
+                                //ito_Vestígio de furto_1_escalada_1_fragmentos_1_cimentícioschk
+                                //ito_Vestígio de furto_1_escalada_1_fragmentos_1_cimentícioschk
+                                // let texto = "";
+                                // texto = texto + menuFurto[2][j][2][a][0];
+
+                                // //ito_Vestígio de furto_1_escalada_1_sujidades_chk_1
+                                // console.log("ito_"+menuFurto[0]+"_"+i+"_"+menuFurto[2][j][0]+"_"+i+"_"+menuFurto[2][j][2][a][0]+"_chk_"+i);
+                                // console.log(texto);
+                            }
 
                            // dataVF = dataVF + extraiSubs(menuFurto[2][j]);
                         }
@@ -274,31 +305,6 @@
 
         });
 
-        
-        function extraiSubs (iMenu){
-            let texto = "";
-            
-            for (a=0;a<iMenu[1].length;a++){
-                texto = texto + "Texto direto:" + iMenu[a] + "; ";
-            }
-            for (a=0;a<iMenu[2].length;a++){
-                texto = texto + "SubMenu: " + iMenu[2][a][0] + "; ";
-            }
-            texto = texto + extraiSubs_1(iMenu[2]);
-            return texto;
-        }
-        function extraiSubs_1 (iMenu){
-            let texto = "";
-            
-            for (a=0;a<iMenu[0].length;a++){
-                texto = texto + "Texto direto:" + iMenu[1] + "; ";
-            }
-            for (a=0;a<iMenu[1].length;a++){
-                texto = texto + "SubMenu: " + iMenu[2] + "; ";
-            }
-
-            return texto;
-        }
         
 
 
